@@ -15,8 +15,115 @@
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/firstnameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_home"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:hint="@string/firstname"
+        />
+    <EditText
+        android:id="@+id/lastnameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstnameEditText"
+        android:layout_margin="50dp"
+        android:hint="@string/lastname"
+        />
+    <Switch
+        android:id="@+id/donorSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lastnameEditText"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+
+        android:text="@string/donor"
+        android:textColor="@color/red"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:padding="20dp"
+        />
+
+    <Switch
+        android:id="@+id/recieverSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:padding="20dp"
+        android:text="@string/reciever"
+        android:textColor="@color/red"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/donorSwitch" />
+
+    <EditText
+        android:id="@+id/bloodgroupEditText"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recieverSwitch"
+        android:hint="@string/blood_group_o"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+
+       />
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bloodgroupEditText"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/submit"
+        android:textColor="@color/red"
+        />
+    <TextView
+        android:id="@+id/positiveButtin"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/bloodgroupEditText"
+        app:layout_constraintTop_toBottomOf="@id/recieverSwitch"
+        android:layout_marginStart="10dp"
+        android:background="@color/white"
+        android:text="@string/positive"
+        android:textColor="@color/red"
+        android:textSize="40sp"
+        android:paddingStart="20dp"
+
+        />
+    <TextView
+        android:id="@+id/negativeButtin"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/positiveButtin"
+        app:layout_constraintTop_toBottomOf="@id/recieverSwitch"
+        android:layout_marginStart="10dp"
+        android:background="@color/white"
+        android:text="@string/negative"
+        android:textColor="@color/red"
+        android:textSize="40sp"
+        android:paddingStart="20dp"
+        />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

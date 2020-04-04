@@ -20,17 +20,17 @@ import com.saurabh.bloodbank.R;
 import com.saurabh.bloodbank.fragment.HomeActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, OnCompleteListener<AuthResult> {
-    EditText email, password;
-    Button login;
-    FirebaseAuth auth;
+    private EditText emailText, passwordText;
+    private Button login;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
+        emailText = findViewById(R.id.emailLogin);
+        passwordText = findViewById(R.id.passwordLogin);
         login = findViewById(R.id.loginBtn);
         auth = FirebaseAuth.getInstance();
 
@@ -39,19 +39,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        String email_text = email.getText().toString();
-        String password_text = password.getText().toString();
-        switch (v.getId()){
-            case R.id.login : {
+        String email_text = emailText.getText().toString();
+        String password_text = passwordText.getText().toString();
+        switch (v.getId()) {
+            case R.id.loginBtn :
                 if (TextUtils.isEmpty(email_text) && TextUtils.isEmpty(password_text)) {
-                    Log.d("register", "Empty Credential");
-                    Toast.makeText(this, "Empty Credential", Toast.LENGTH_SHORT).show();
-                } else if (password_text.length() < 6) {
-                    Log.d("register", "password is too short");
-                } else {
-                    loginUser(email_text,password_text);
-                }
-
+                Log.d("login", "Empty Credential");
+                Toast.makeText(this, "Empty Credential", Toast.LENGTH_SHORT).show();
+            } else if (password_text.length() < 6) {
+                Log.d("login", "password is too short");
+            } else {
+                loginUser(email_text, password_text);
             }
         }
 
@@ -66,6 +64,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (task.isSuccessful()){
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(intent);
+            Log.d("login", "onComplete: Successful intent to Homeactivity");
+
         }
         else{
             Toast.makeText(this, "Login Failed : "+task.getException(), Toast.LENGTH_SHORT).show();
